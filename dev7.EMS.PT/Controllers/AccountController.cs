@@ -12,7 +12,6 @@ using dev7.EMS.PT.Models;
 
 namespace dev7.EMS.PT.Controllers
 {
-    //this is waleed changes
     [Authorize]
     public class AccountController : Controller
     {

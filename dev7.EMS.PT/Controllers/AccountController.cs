@@ -12,6 +12,7 @@ using dev7.EMS.PT.Models;
 
 namespace dev7.EMS.PT.Controllers
 {
+    //This is demo account
     [Authorize]
     public class AccountController : Controller
     {

@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--<Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />-->
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C02E6979-860E-454B-8237-43BB9D7B2ECE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>dev7.EMS.BT</RootNamespace>
+    <AssemblyName>dev7.EMS.BT</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="DAL\DBHelper.cs" />
+    <Compile Include="DAL\Repository\EFRepository.cs" />
+    <Compile Include="DAL\EMSDataContext.cs" />
+    <Compile Include="DAL\UoW\EMSUoW.cs" />
+    <Compile Include="DAL\IDataProvider.cs" />
+    <Compile Include="DAL\Repository\IRepository.cs" />
+    <Compile Include="DAL\UoW\IUnitOfWork.cs" />
+    <Compile Include="DAL\Maps\AddressMap.cs" />
+    <Compile Include="DAL\Maps\BaseTypeConfiguration.cs" />
+    <Compile Include="DAL\Maps\BasicInfoMap.cs" />
+    <Compile Include="DAL\Maps\CompanyMap.cs" />
+    <Compile Include="DAL\Maps\CustomerMap.cs" />
+    <Compile Include="DAL\Maps\EmployeeMap.cs" />
+    <Compile Include="Domain\AppConstants.cs" />
+    <Compile Include="Domain\BaseDomain.cs" />
+    <Compile Include="Domain\Entities\AddressDE.cs" />
+    <Compile Include="Domain\Entities\BasicInfoDE.cs" />
+    <Compile Include="Domain\Entities\CompanyDE.cs" />
+    <Compile Include="Domain\Entities\CustomerDE.cs" />
+    <Compile Include="Domain\Entities\EmployeeDE.cs" />
+    <Compile Include="Domain\Entities\EventDE.cs" />
+    <Compile Include="Domain\Entities\EventTypeDE.cs" />
+    <Compile Include="Domain\Entities\ScheduleDE.cs" />
+    <Compile Include="Domain\Entities\VehicleDE.cs" />
+    <Compile Include="Domain\Entities\VehicleFuelDE.cs" />
+    <Compile Include="Domain\Entities\VehicleTypeDE.cs" />
+    <Compile Include="Domain\Entities\VendorDE.cs" />
+    <Compile Include="Domain\Entities\VendorTypeDE.cs" />
+    <Compile Include="Domain\Enums.cs" />
+    <Compile Include="Domain\Extensions.cs" />
+    <Compile Include="Domain\ResultMessage.cs" />
+    <Compile Include="Domain\SMTPDE.cs" />
+    <Compile Include="Migrations\202003082103111_InitialCreate.cs" />
+    <Compile Include="Migrations\202003082103111_InitialCreate.designer.cs">
+      <DependentUpon>202003082103111_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003110757413_vendor.cs" />
+    <Compile Include="Migrations\202003110757413_vendor.designer.cs">
+      <DependentUpon>202003110757413_vendor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003110829575_vendorsalary.cs" />
+    <Compile Include="Migrations\202003110829575_vendorsalary.designer.cs">
+      <DependentUpon>202003110829575_vendorsalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003110911063_vendortypecompany.cs" />
+    <Compile Include="Migrations\202003110911063_vendortypecompany.designer.cs">
+      <DependentUpon>202003110911063_vendortypecompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003181200440_eventtype.cs" />
+    <Compile Include="Migrations\202003181200440_eventtype.designer.cs">
+      <DependentUpon>202003181200440_eventtype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003190818525_schedules.cs" />
+    <Compile Include="Migrations\202003190818525_schedules.designer.cs">
+      <DependentUpon>202003190818525_schedules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003190832192_CustomerEventRelation.cs" />
+    <Compile Include="Migrations\202003190832192_CustomerEventRelation.designer.cs">
+      <DependentUpon>202003190832192_CustomerEventRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003191022331_eventStatus.cs" />
+    <Compile Include="Migrations\202003191022331_eventStatus.designer.cs">
+      <DependentUpon>202003191022331_eventStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account\CompanySignUpModel.cs" />
+    <Compile Include="Models\Account\CustomerSignUpModel.cs" />
+    <Compile Include="Models\Account\EmployeeSignUpModel.cs" />
+    <Compile Include="Models\Account\SignUpModels.cs" />
+    <Compile Include="Models\Address\AddressesMD.cs" />
+    <Compile Include="Models\Address\AddressMD.cs" />
+    <Compile Include="Models\BasicInfo\BasicInfoListMD.cs" />
+    <Compile Include="Models\BasicInfo\BasicInfoMD.cs" />
+    <Compile Include="Models\Customer\CustomerMD.cs" />
+    <Compile Include="Models\Customer\CustomersMD.cs" />
+    <Compile Include="Models\EmailModel.cs" />
+    <Compile Include="Models\Employee\EmployeeMD.cs" />
+    <Compile Include="Models\Employee\EmployeesMD.cs" />
+    <Compile Include="Models\EventType\EventTypeMD.cs" />
+    <Compile Include="Models\EventType\EventTypesMD.cs" />
+    <Compile Include="Models\Event\EventMD.cs" />
+    <Compile Include="Models\Event\EventsMD.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Schedule\ScheduleMD.cs" />
+    <Compile Include="Models\Schedule\SchedulesMD.cs" />
+    <Compile Include="Models\VehicleFuel\VehicleFuelMD.cs" />
+    <Compile Include="Models\VehicleFuel\VehicleFuelsMD.cs" />
+    <Compile Include="Models\Vehicle\VehicleMD.cs" />
+    <Compile Include="Models\Vehicle\VehiclesMD.cs" />
+    <Compile Include="Models\VendorType\VendorTypeMD.cs" />
+    <Compile Include="Models\VendorType\VendorTypesMD.cs" />
+    <Compile Include="Models\Vendor\VendorMD.cs" />
+    <Compile Include="Models\Vendor\VendorsMD.cs" />
+    <Compile Include="Models\ViewModels\AvailabiltyVM.cs" />
+    <Compile Include="Models\Company\CompaniesMD.cs" />
+    <Compile Include="Models\Company\CompanyMD.cs" />
+    <Compile Include="Models\ViewModels\EmptyResultVM.cs" />
+    <Compile Include="Models\ModelBase.cs" />
+    <Compile Include="Models\ViewModels\BaseViewModel.cs" />
+    <Compile Include="Models\ViewModels\SignUpVM.cs" />
+    <Compile Include="Models\ViewModels\UserVM.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\MembershipContext.cs" />
+    <Compile Include="Services\ServiceContracts\IAccountService.cs" />
+    <Compile Include="Services\ServiceContracts\IAppConfiguartion.cs" />
+    <Compile Include="Services\ServiceContracts\ICompanyServiceContract.cs" />
+    <Compile Include="Services\ServiceContracts\ICustomerServiceContract.cs" />
+    <Compile Include="Services\ServiceContracts\IEmailService.cs" />
+    <Compile Include="Services\ServiceContracts\IEmployeeServiceContract.cs" />
+    <Compile Include="Services\ServiceContracts\IEncryptionService.cs" />
+    <Compile Include="Services\ServiceContracts\IEventServiceContract.cs" />
+    <Compile Include="Services\ServiceContracts\IEventTypeServiceContract.cs" />
+    <Compile Include="Services\ServiceContracts\IScheduleServiceContract.cs" />
+    <Compile Include="Services\ServiceContracts\IVehicleFuelServiceContract.cs" />
+    <Compile Include="Services\ServiceContracts\IVehicleServiceContract.cs" />
+    <Compile Include="Services\ServiceContracts\IVendorServiceContract.cs" />
+    <Compile Include="Services\ServiceContracts\IVendorTypeServiceContract.cs" />
+    <Compile Include="Services\Services\AccountService.cs" />
+    <Compile Include="Services\Services\AppConfiguration.cs" />
+    <Compile Include="Services\Services\CompanyService.cs" />
+    <Compile Include="Services\Services\CustomerService.cs" />
+    <Compile Include="Services\Services\EmailConfiguration.cs" />
+    <Compile Include="Services\Services\EmailService.cs" />
+    <Compile Include="Services\Services\EmployeeService.cs" />
+    <Compile Include="Services\Services\EncryptionService.cs" />
+    <Compile Include="Services\Services\EventService.cs" />
+    <Compile Include="Services\Services\EventTypeService.cs" />
+    <Compile Include="Services\Services\ScheduleService.cs" />
+    <Compile Include="Services\Services\VehicleFuelService.cs" />
+    <Compile Include="Services\Services\VehicleService.cs" />
+    <Compile Include="Services\Services\VendorService.cs" />
+    <Compile Include="Services\Services\VendorTypeService.cs" />
+    <Compile Include="Translators\AddressTranslators.cs" />
+    <Compile Include="Translators\BasicInfoTranslators.cs" />
+    <Compile Include="Translators\CompanyTranslators.cs" />
+    <Compile Include="Translators\CustomerTranslators.cs" />
+    <Compile Include="Translators\EmployeeTranslators.cs" />
+    <Compile Include="Translators\EventTranslators.cs" />
+    <Compile Include="Translators\EventTypeTranslators.cs" />
+    <Compile Include="Translators\ScheduleTranslators.cs" />
+    <Compile Include="Translators\VehicleFuelTranslators.cs" />
+    <Compile Include="Translators\VehicleTranslators.cs" />
+    <Compile Include="Translators\VendorTranslators.cs" />
+    <Compile Include="Translators\VendorTypeTranslators.cs" />
+    <Compile Include="Utilities\AppConstants.cs" />
+    <Compile Include="Utilities\CurrencyInfo.cs" />
+    <Compile Include="Utilities\DatesHelper.cs" />
+    <Compile Include="Utilities\DBHelper.cs" />
+    <Compile Include="Utilities\Enums.cs" />
+    <Compile Include="Utilities\Extensions\Extensions.cs" />
+    <Compile Include="Utilities\Extensions\StringExtensions.cs" />
+    <Compile Include="Utilities\Logging\ILogManager.cs" />
+    <Compile Include="Utilities\Logging\LogEntry.cs" />
+    <Compile Include="Utilities\Logging\LoggerEnums.cs" />
+    <Compile Include="Utilities\Logging\LogManagerExtensions.cs" />
+    <Compile Include="Utilities\Logging\NLogAdapter.cs" />
+    <Compile Include="Utilities\Models\LookupList.cs" />
+    <Compile Include="Utilities\Models\LookUpMD.cs" />
+    <Compile Include="Utilities\Models\PaginatedResultModel.cs" />
+    <Compile Include="Utilities\NumberToWordHelper.cs" />
+    <Compile Include="Utilities\Pagination\IPaginatedList.cs" />
+    <Compile Include="Utilities\Pagination\PaginatedList.cs" />
+    <Compile Include="Utilities\ReportsHelper.cs" />
+    <Compile Include="Utilities\ResponseHelper.cs" />
+    <Compile Include="Utilities\ToWord.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.ComponentModel.DataAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202003082103111_InitialCreate.resx">
+      <DependentUpon>202003082103111_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003110757413_vendor.resx">
+      <DependentUpon>202003110757413_vendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003110829575_vendorsalary.resx">
+      <DependentUpon>202003110829575_vendorsalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003110911063_vendortypecompany.resx">
+      <DependentUpon>202003110911063_vendortypecompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003181200440_eventtype.resx">
+      <DependentUpon>202003181200440_eventtype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003190818525_schedules.resx">
+      <DependentUpon>202003190818525_schedules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003190832192_CustomerEventRelation.resx">
+      <DependentUpon>202003190832192_CustomerEventRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003191022331_eventStatus.resx">
+      <DependentUpon>202003191022331_eventStatus.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <!--<Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />-->
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
